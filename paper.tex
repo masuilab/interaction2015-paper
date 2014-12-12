@@ -11,15 +11,15 @@
 
 \usepackage[dvips]{graphicx}
 \usepackage{latexsym}
+\usepackage{here} % [H]とするとその場所に配置されるらしい
 
 \def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
 \def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
 \def\|{\verb|}
 
-
-\setcounter{巻数}{53}%vol53=2012
-\setcounter{号数}{2}
-\setcounter{page}{1}
+%\setcounter{巻数}{53}%vol53=2012
+%\setcounter{号数}{2}
+%\setcounter{page}{1}
 
 % インタラクション特有の設定。印刷工程で柱・ノンブルの埋め込みを行う。
 \makeatletter
@@ -28,14 +28,6 @@
 \def\@evenhead{}%
 \def\ps@IPSJTITLEheadings{}
 \makeatother
-
-% このソースファイルは，情報処理学会が研究会・シンポジウム用に新しく定め，提供
-% している共通テンプレートに対し，インタラクションにおける製版工程の差異上必要と
-% なるレイアウト要素について最低限の改変を施したものです．
-% インタラクションにおける原稿作成上の注意や，提出先などの指示は，
-% http://www.interaction-ipsj.org/2015/submission の案内に従ってください．
-% 本文は，研究会・シンポジウムの原稿を作成する上での一般的な注意になっています．
-
 
 \begin{document}
 
@@ -58,13 +50,13 @@ Faculty of Environment and Infomation Studies, Keio University}
 
 カメラを登載した模型モノレールをオフィスの天井で走らせることによって、
 オフィス外の人間がオフィス内の人間と会話することができるシステムを作成した。
-車輪で移動可能なロボットを利用することにより遠隔地のユーザがオフィスの会議などに参加する試みが近年盛んになっているが、
+車輪で移動可能なロボットを利用することによって
+遠隔地のユーザがオフィスの会議などに参加する試みが近年盛んになっているが、
 混雑した場所でロボットが自由に移動することは難しいことが多い。邪魔物が存在しない天井を自由に移動できる装置を利用することによって、
 実用的な遠隔コミュニケーションシステムが実現できた。
-本システムの利用により、卒業したメンバが部室を訪れる「OB降臨」を手軽に実現することができる。
-
+本システムの利用により、
+卒業したメンバが部室を訪れる「OB降臨」機能を手軽に実現することができる。
 \end{abstract}
-
 
 %\begin{jkeyword}
 %情報処理学会論文誌ジャーナル，\LaTeX，スタイルファイル，べからず集
@@ -92,6 +84,15 @@ people at any time.
 システムの研究は盛んに行われている．今日ではビデオ会議システムや遠隔操作可能な
 人間を模したロボットなどが普及しつつある．
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=70mm,bb=0 0 241 306]{figures/b74f4564d4b38d12e48fcf80fef96def.png}
+\end{center}
+\caption{WISS2014}
+\label{screenshot1}
+\end{figure}
+
+
 以前に研究室では卓上を動き回ることのできるロボットを介した遠隔コミュニケーション
 支援システムを製作した\cite{Hirota:Korin}が，動ける範囲に制限があったり
 障害物に阻まれてカメラからの映像が見られなかったりすることがあった．
@@ -102,7 +103,7 @@ people at any time.
 %2
 \section{関連研究}
 
-Double RoboticsのDouble\footnote{
+Double RoboticsのDouble\footnotetext{
   \textsf{http://www.doublerobotics.com}
 }
 は遠隔地から操作可能な高さ約1.2mのテレプレゼンス
@@ -112,8 +113,6 @@ Double RoboticsのDouble\footnote{
 
 Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れるロボットで遠隔地を訪れられる．大掛かりな
 操作室が必要だが、現地での活動能力は高い．
-
-\footnotetext{}
 
 %3
 \section{降臨鉄道}
@@ -127,7 +126,7 @@ Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き�
 降臨鉄道にはAndroidスマートフォンが搭載されており，サーバからの命令を受け取り
 DCモータを制御する．DCモータの制御は440Hzの正弦波のMP3音声ファイルを再生し，
 イヤホン端子から擬似的な交流電源を得てリレーを駆動させることによって行っている．
-動画の配信にはAndroidアプリケーションIP Webcam\footnote{
+動画の配信にはAndroidアプリケーションIP Webcam\footnotetext{
   \textsf{https://play.google.com/store/apps/details?id=com.pas.webcam}
 }
 を使用し，MotionJPEG形式の
@@ -137,8 +136,8 @@ WebサーバにはAndroid用のページとクライアント用のページが�
 クライアント用ページでは降臨鉄道のカメラからの影像の表示と移動の命令をし，
 Android用ページでは移動の命令に従って音声ファイルを再生している．
 
-操作はLindaという並列計算プリミティブをWebサーバ上に実装したlinda-server\footnote{
-  \textsf{}
+操作はLindaという並列計算プリミティブをWebサーバ上に実装したlinda-server\footnotetext{
+  \textsf{aaaaa}
 }
 を用いて実装している．
 
