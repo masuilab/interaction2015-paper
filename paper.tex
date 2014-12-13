@@ -1,6 +1,13 @@
 %
 % 「降臨鉄道」インタラクション2015ポスタ
 %
+% 山田尚昭 and 増井俊之 
+% 2014/12/13 17:40:18
+%
+% 以下をeval-regionする
+% (replace-string "。" "．")
+% (replace-string "、" "，")
+%
 
 \documentclass[submit,techreq]{ipsj}
 
@@ -50,10 +57,6 @@ Faculty of Environment and Infomation Studies, Keio University}
 卒業したメンバが部室を訪れる「OB降臨」機能を手軽に実現することができる。
 \end{abstract}
 
-%\begin{jkeyword}
-%情報処理学会論文誌ジャーナル，\LaTeX，スタイルファイル，べからず集
-%\end{jkeyword}
-%
 \begin{eabstract}
 We developed the ``Camera on Rails'' telecommunication system with
 which people out of the office can communicate with people in the
@@ -62,14 +65,9 @@ of the office. Using the system, people can monitor the current status
 of the office by running the train on the ceiling, and have
 conversation with the people in the office.
 \end{eabstract}
-%
-%\begin{ekeyword}
-%IPSJ Journal, \LaTeX, style files, ``Dos and Dont's'' list
-%\end{ekeyword}
 
 \maketitle
 
-%1
 \section{はじめに}
 
 遠隔地の人とあたかも同じ場所にいるかのような感覚を強化するテレプレゼンスの
@@ -83,7 +81,6 @@ conversation with the people in the office.
 何にも邪魔をされることのない部屋の天井を移動する遠隔情報共有システム
 降臨鉄道を提案する．
 
-%2
 \section{関連研究}
 
 Double RoboticsのDouble\footnote{
@@ -95,18 +92,17 @@ Double RoboticsのDouble\footnote{
 ことがある．
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=30mm]{figures/b74f4564d4b38d12e48fcf80fef96def.png}}
-\caption{WISS2014で質疑応答に利用されたDouble}.
+\centerline{\includegraphics[width=50mm]{figures/b74f4564d4b38d12e48fcf80fef96def.png}}
+\caption{WISS2014で質疑応答に利用されたDouble.}
 \label{screenshot1}
 \end{figure}
 % http://engineer.typemag.jp/article/yuki-igarashi41
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=30mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
-\caption{BeamPro}.
+\centerline{\includegraphics[width=60mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
+\caption{BeamPro.}
 \label{screenshot1}
 \end{figure}
-% http://engineer.typemag.jp/article/yuki-igarashi41
 
 \footnote{
   \textsf{https://www.suitabletech.com/beam/}
@@ -115,7 +111,6 @@ Double RoboticsのDouble\footnote{
 Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れるロボットで遠隔地を訪れられる．大掛かりな
 操作室が必要だが、現地での活動能力は高い．
 
-%3
 \section{降臨鉄道}
 
 ユーザはWebページにアクセスすることで降臨鉄道が設置された遠隔地のリアルタイム
@@ -123,7 +118,7 @@ Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き�
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=70mm]{figures/image.png}
+\includegraphics[width=60mm]{figures/image.png}
 \end{center}
 \caption{天井を走る降臨鉄道.}
 \label{monorail}
@@ -162,10 +157,8 @@ Webサーバ上に実装したlinda-server\footnote{
 }
 を用いて実装している．
 
-%4
 \section{まとめと展望}
 
-% 遠隔イベント参加とか．
 今回のデモで紹介したシステムは現在，研究室内で実際の運用を通じて実験中である．
 降臨鉄道は多くの人が集まるイベント会場などで遠隔イベント参加システムとして利用
 できると考える．
@@ -173,11 +166,9 @@ Webサーバ上に実装したlinda-server\footnote{
 また，将来的には目的に応じたロボットを複数個用意し，世代間を超えてより活発な
 研究活動ができるようにしたいと考えている．
 
-% \begin{acknowledgment}
-% 本研究に協力していただいた増井研のメンバーに感謝いたします．
-% \end{acknowledgment}
-
+{\scriptsize
 \bibliographystyle{ipsjsort}
 \bibliography{paper}
+}
 
 \end{document}
