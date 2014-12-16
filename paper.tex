@@ -14,8 +14,9 @@
 \usepackage[dvipdfmx]{graphicx}
 
 \usepackage{latexsym}
-\usepackage{here} % [H]とするとその場所に配置されるらしい
+\usepackage{here} % [H]とするとその場所に配置される
 
+% ???
 \def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
 \def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
 \def\|{\verb|}
@@ -40,20 +41,12 @@ Faculty of Environment and Infomation Studies, Keio University}
 \author{増井 俊之}{Toshiyuki Masui}{KU}
 
 \begin{abstract}
-% 現代では2ちゃんねる等に有名人が書き込みをすることが降臨と呼ばれており，降臨の
-% 場では普段雲の上の存在である有名人が，その場の人々と親しく交流をしている．
-% 我々はこのネット上の降臨を実世界に実現することで，研究室OBと現役学生のコミュ
-% ニケーションを実現できるのではないかと考えた．さらに，天井を移動するモノレール
-% 型の鉄道玩具を用いて，従来の遠隔コミュニケーションシステムには無い自由な移動と
-% より広い視野を手に入れた．
-
 カメラを登載した模型モノレールをオフィスの天井で走らせることによって，
-オフィスにいない人間がオフィスの様子を覗いたりオフィス内の人間と会話したりできる
-遠隔通信システムを作成した．
-車輪で移動可能なロボットなどを利用することによって
-遠隔地のユーザがオフィスの会議などに参加する試みが近年盛んになっているが，
+どこからでもオフィスの様子を覗いたりオフィス内の人間と会話したりできる遠隔通信システムを作成した．
+車輪で移動可能なロボットを利用することによって
+遠隔地のユーザが会議や学会に参加する試みが近年盛んになっているが，
 混雑した環境ではロボットが自由に移動できないため実運用が難しいことが多い．
-邪魔物が存在しない天井に装着したレール上を自由に移動できるモノレールを利用することによって，
+邪魔物が無い天井に装着したレール上を自由に移動できるモノレールを利用することにより，
 実用的な遠隔コミュニケーションシステムが実現できた．
 % 本システムの利用により，
 % 卒業したメンバが部室を訪れる「OB降臨」機能を手軽に実現することができる．
@@ -61,20 +54,21 @@ Faculty of Environment and Infomation Studies, Keio University}
 
 \begin{eabstract}
 We developed the ``Camera on Rails'' telecommunication system with
-which people out of the office can communicate with people in the
-office through a camera on a model monorail train running on the ceiling
-of the office. Using the system, people can monitor the current status
-of the office by running the train on the ceiling, and have
+which a user can communicate with other people in a
+distance office through a camera on a model monorail train running on the ceiling
+of the office. Using our system, the user can monitor the current status
+of the office by running the train on the ceiling and have
 conversation with the people in the office.
+% from arbitrary angles.
 \end{eabstract}
 
 \maketitle
 
 \section{はじめに}
 
-遠隔地の人とあたかも同じ場所にいるかのような感覚を強化するテレプレゼンスの
-システムの研究は盛んに行われている．今日ではビデオ会議システムや遠隔操作可能な
-人間を模したロボットなどが普及しつつある．
+遠隔地の人とあたかも同じ場所にいるかのような感覚を強化する
+テレプレゼンスシステムの研究が盛んである．
+今日ではビデオ会議システムや遠隔操作可能な人間を模したロボットなどが普及しつつある．
 
 以前から研究室において卓上を動き回ることのできるロボットを介した遠隔コミュニケーション
 支援システムを製作して運用していたが\cite{Hirota:Korin}，動ける範囲に制限があったり
@@ -166,6 +160,9 @@ Webサーバ上に実装したlinda-server\footnote{
 
 また，将来的には目的に応じたロボットを複数個用意し，世代間を超えてより活発な
 研究活動ができるようにしたいと考えている．
+
+
+*** 複数の人が参加できない *** 任意の場所に移動できない *** 「駅」での充電
 
 {\scriptsize
 \bibliographystyle{ipsjsort}
