@@ -71,28 +71,33 @@ conversation with the people in the office.
 今日ではビデオ会議システムや遠隔操作可能な人間を模したロボットなどが普及しつつある．
 
 以前から研究室において卓上を動き回ることのできるロボットを介した遠隔コミュニケーション
-支援システムを製作して運用していたが\cite{Hirota:Korin}，動ける範囲に制限があったり
-障害物に阻まれてカメラからの映像が見られなかったりすることが多かった．
+支援システムを製作して運用していたが(図\ref{Guntank})\cite{Hirota:Korin}，
+動ける範囲に制限があったり障害物に阻まれてカメラからの映像が見られなかったり
+することが多かった．
 
 何にも邪魔をされることのない部屋の天井を移動する遠隔情報共有システム
 降臨鉄道を提案する．
 
 \section{関連研究}
 
+Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れる
+ロボットで遠隔地を訪れられる．大掛かりな操作室が必要だが，現地での活動能力は高い．
+
 Double RoboticsのDouble\footnote{
   \textsf{http://www.doublerobotics.com}
-}
-は遠隔地から操作可能な高さ約1.2mのテレプレゼンス
-ロボットである．Doubleのような人間の分身を模したロボットは，卓上に置かれた
-小型のロボットに比べて移動できる範囲は大きいが，他の人の邪魔になったりする
-ことがある．
+}(図\ref{double})
+やSuitable Technologiesのbeam pro\footnote{
+  \textsf{http://https://www.suitabletech.com/beampro/}
+}(図\ref{beampro})
+は遠隔地から操作可能な人間を模したテレプレゼンスロボットである．Doubleやbeam pro
+のような人間の分身を模したロボットは，卓上に置かれた小型のロボットに比べて移動
+できる範囲は大きいが，他人の邪魔になることがある．
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=50mm]{figures/1e8781bb2a5b28c8e06906d226c7505a.png}}
 \caption{ガンタンク.}
 \label{Guntank}
 \end{figure}
-
 
 
 \begin{figure}[H]
@@ -103,17 +108,14 @@ Double RoboticsのDouble\footnote{
 % http://engineer.typemag.jp/article/yuki-igarashi41
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=60mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
+\centerline{\includegraphics[width=50mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
 \caption{BeamPro.}
 \label{beampro}
 \end{figure}
 
-\footnote{
-  \textsf{https://www.suitabletech.com/beam/}
-}
-
-Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れるロボットで遠隔地を訪れられる．大掛かりな
-操作室が必要だが，現地での活動能力は高い．
+%\footnote{
+%  \textsf{https://www.suitabletech.com/beam/}
+%}
 
 \section{降臨鉄道}
 
@@ -122,23 +124,25 @@ Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き�
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=60mm]{figures/image.png}
+\includegraphics[width=50mm]{figures/image.png}
 \end{center}
 \caption{天井を走る降臨鉄道.}
 \label{monorail}
 \end{figure}
 
 
-降臨鉄道システムは，Androidスマートフォンが取り付けられた懸垂式モノレール型の
-鉄道玩具「降臨鉄道」とWebサーバ，linda-serverから構成される．
+降臨鉄道システムは，Androidスマートフォンが取り付けられた懸垂式モノレール型
+鉄道模型の降臨鉄道とWebサーバ，linda-serverから構成される．
 
 降臨鉄道にはAndroidスマートフォンが搭載されており，サーバからの命令を受け取り
 DCモータを制御する．DCモータの制御は440Hzの正弦波のMP3音声ファイルを再生し，
 イヤホン端子から擬似的な交流電源を得てリレーを駆動させることによって行っている．
+電源はUSB接続のモバイルバッテリーを使用している。
+
 動画の配信にはAndroidアプリケーションIP Webcam\footnote{
   \textsf{https://play.google.com/store/apps/details?id=com.pas.webcam}
 }
-を使用し，MotionJPEG形式の影像をHTTPで配信している．
+を使用し，MotionJPEG形式の映像をHTTPで配信している．
 
 WebサーバにはAndroid用のページとクライアント用のページが
 用意されている(図\ref{browser})．
@@ -151,11 +155,11 @@ WebサーバにはAndroid用のページとクライアント用のページが
 \label{browser}
 \end{figure}
 
-クライアント用ページでは降臨鉄道のカメラからの影像の表示と移動の命令をし，
+クライアント用ページでは降臨鉄道のカメラからの映像の表示と移動の命令をし，
 Android用ページでは移動の命令に従って音声ファイルを再生している．
 
 操作は並列計算プリミティブLinda\cite{Carriero:1989:LC:63334.63337}
-Webサーバ上に実装したlinda-server\footnote{
+をWebサーバ上に実装したlinda-server\footnote{
   \textsf{https://github.com/node-linda/linda}
 }
 を用いて実装している．
@@ -163,14 +167,16 @@ Webサーバ上に実装したlinda-server\footnote{
 \section{まとめと展望}
 
 今回のデモで紹介したシステムは現在，研究室内で実際の運用を通じて実験中である．
-降臨鉄道は多くの人が集まるイベント会場などで遠隔イベント参加システムとして利用
-できると考える．
+降臨鉄道は遠隔コミュニケーションシステムとして利用するのはもちろんのこと、
+多くの人が集まるイベント会場などで遠隔イベント参加システムとして利用できるだろう．
 
-また，将来的には目的に応じたロボットを複数個用意し，世代間を超えてより活発な
+本実装では使用している鉄道模型が1つしかないため、複数の人が参加することが
+できない，レールに沿って移動するため任意の場所に移動できないということがあるが，
+これらは今後の課題としたい．また，自動でバッテリーの充電を行う「駅」を作ること
+で運用する上での負担を減らしていきたい．
+
+将来的には目的に応じたロボットを複数個用意し，世代間を超えてより活発な
 研究活動ができるようにしたいと考えている．
-
-
-*** 複数の人が参加できない *** 任意の場所に移動できない *** 「駅」での充電
 
 {\scriptsize
 \bibliographystyle{ipsjsort}
