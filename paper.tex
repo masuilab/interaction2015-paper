@@ -37,7 +37,12 @@
 \affiliate{KU}{慶應義塾大学 環境情報学部\\
 Faculty of Environment and Infomation Studies, Keio University}
 
+\affiliate{MG}{慶應義塾大学大学院 政策・メディア研究科\\
+Graduate School of Media and Governance, Keio University}
+
 \author{山田 尚昭}{Naoaki Yamada}{KU}
+\author{中山 拓哉}{Takuya Nakayama}{KU}
+\author{橋本 翔}{Sho Hashimoto}{MG}
 \author{増井 俊之}{Toshiyuki Masui}{KU}
 
 \begin{abstract}
@@ -88,10 +93,8 @@ Double RoboticsのDouble\footnote{
 }のプラモデルを利用した遠隔コミュニケーション支援システム「OB降臨システム」を
 作成して運用しているが\cite{Hirota:Korin}，
 ケーブルの制約のため動ける範囲が狭く、
-机の上の障害物のために移動が制限されたりカメラからの映像が見られなかったりすることが多かった(図\ref{guntank})．
-%
-邪魔物が存在しない天井を移動する遠隔情報共有システム
-「降臨鉄道」を提案する．
+机の上の障害物のために移動が制限されたりカメラからの映像が見られなかったり
+することが多かった(図\ref{guntank})．
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=50mm]{figures/1e8781bb2a5b28c8e06906d226c7505a.png}}
@@ -99,20 +102,22 @@ Double RoboticsのDouble\footnote{
 \label{guntank}
 \end{figure}
 
+邪魔物が存在しない天井を移動する遠隔情報共有システム「降臨鉄道」を提案する．
+
 
 
 % \section{関連研究}
-% 
+%
 % \begin{figure}[H]
 % \centerline{\includegraphics[width=60mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
 % \caption{BeamPro.}
 % \label{beampro}
 % \end{figure}
-% 
+%
 % \footnote{
 %   \textsf{https://www.suitabletech.com/beam/}
 % }
-% 
+%
 % Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れるロボットで遠隔地を訪れられる．大掛かりな
 % 操作室が必要だが，現地での活動能力は高い．
 
@@ -145,10 +150,12 @@ Double RoboticsのDouble\footnote{
 降臨鉄道に登載されたAndroidスマートフォンは降臨鉄道ページからの移動指示に従って
 440Hz正弦波信号をL/Rイヤホン端子に出力し、
 この信号にもとづいてリレーを駆動することによってDCモータでの前進/後退を制御している。
+電源はUSB接続のモバイルバッテリーを使用している．
+
 動画の配信にはAndroidアプリケーションIP Webcam\footnote{
   \textsf{https://play.google.com/store/apps/details?id=com.pas.webcam}
 }
-を使用し，MotionJPEG形式の影像をHTTPで配信している．
+を使用し，MotionJPEG形式の映像をHTTPで配信している．
 
 操作は並列計算プリミティブLinda\cite{Carriero:1989:LC:63334.63337}
 Webサーバ上に実装したlinda-server\footnote{
@@ -158,15 +165,28 @@ Webサーバ上に実装したlinda-server\footnote{
 
 \section{まとめと展望}
 
-今回のデモで紹介したシステムは現在，研究室内で実際の運用を通じて実験中である．
-降臨鉄道は多くの人が集まるイベント会場などで遠隔イベント参加システムとして利用
-できると考える．
+本研究では，カメラを登載した模型モノレールをオフィスの天井で走らせることによって，
+どこからでもオフィスの様子を覗いたりオフィス内の人間と会話したりできる遠隔通信
+システム「降臨鉄道」作成した．今回のデモで紹介したシステムは現在，研究室内で実際の運用を通じて実験中であるが，今後の課題として次の点が挙げられる．
 
-また，将来的には目的に応じたロボットを複数個用意し，世代間を超えてより活発な
+(1)複数の人が参加できない
+
+本実装では使用している模型モノレールが1つしかないため，複数の人が参加することができ
+ない．複数人が同時にシステムを利用することができる仕組みが必要である．
+
+(2)任意の場所に移動できない
+
+レールに沿って走るという制約があるため，レールのない場所に移動したり任意の場所に瞬時に移動したりすることができない．
+
+(3)「駅」での充電
+本実装では電源に使用しているモバイルバッテリーの充電が切れた時に，天井に登って
+人間の手で充電済みのバッテリーと交換をしている．バッテリーの充電を自動で行う「駅」を設置することで運用する上での負担を減らすことができるだろう．
+
+降臨鉄道は遠隔コミュニケーションシステムとして利用するのはもちろんのこと，
+多くの人が集まるイベント会場などで遠隔イベント参加システムとして利用できるだろう．
+
+将来的には目的に応じたロボットを複数個用意し，世代間を超えてより活発な
 研究活動ができるようにしたいと考えている．
-
-
-*** 複数の人が参加できない *** 任意の場所に移動できない *** 「駅」での充電
 
 {\scriptsize
 \bibliographystyle{ipsjsort}
