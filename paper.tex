@@ -43,10 +43,10 @@ Faculty of Environment and Infomation Studies, Keio University}
 \begin{abstract}
 カメラを登載した模型モノレールをオフィスの天井で走らせることによって，
 どこからでもオフィスの様子を覗いたりオフィス内の人間と会話したりできる遠隔通信システムを作成した．
-車輪で移動可能なロボットを利用することによって
+床を移動するロボットを利用することによって
 遠隔地のユーザが会議や学会に参加する試みが近年盛んになっているが，
 混雑した環境ではロボットが自由に移動できないため実運用が難しいことが多い．
-邪魔物が無い天井に装着したレール上を自由に移動できるモノレールを利用することにより，
+邪魔物が無い天井に装着したレール上を自由に動けるモノレールを利用することにより，
 実用的な遠隔コミュニケーションシステムが実現できた．
 % 本システムの利用により，
 % 卒業したメンバが部室を訪れる「OB降臨」機能を手軽に実現することができる．
@@ -66,54 +66,58 @@ conversation with the people in the office.
 
 \section{はじめに}
 
-遠隔地の人とあたかも同じ場所にいるかのような感覚を強化する
-テレプレゼンスシステムの研究が盛んである．
-今日ではビデオ会議システムや遠隔操作可能な人間を模したロボットなどが普及しつつある．
+遠隔地の人と同じ場所にいるかのような感覚を強化する
+テレプレゼンスシステムの研究が盛んであり、
+ビデオ会議システムや遠隔操作可能なロボットなどが普及しつつある．
+%
+2014年に開催されたWISS2014では、
+Double RoboticsのDouble\footnote{
+  \textsf{http://www.doublerobotics.com}
+}というテレプレゼンスロボットの導入により、
+遠隔地の人間が会議に参加可能になっていた(図\ref{double})\footnote{
+  \textsf{http://engineer.typemag.jp/article/yuki-igarashi41}
+}。
 
-以前から研究室において卓上を動き回ることのできるロボットを介した遠隔コミュニケーション
-支援システムを製作して運用していたが\cite{Hirota:Korin}，動ける範囲に制限があったり
-障害物に阻まれてカメラからの映像が見られなかったりすることが多かった．
+\begin{figure}[t]
+\centerline{\includegraphics[width=40mm]{figures/b74f4564d4b38d12e48fcf80fef96def.png}}
+\caption{Doubleを利用した質疑応答.}
+\label{double}
+\end{figure}
+
+筆者の研究室では、卓上を動き回ることのできる
+ガンタンク\footnote{
+  「機動戦士ガンダム」に登場する有人式人型ロボット兵器。
+}のプラモデルを利用した遠隔コミュニケーション支援システム「OB降臨システム」を
+作成して運用していたが\cite{Hirota:Korin}，
+USBケーブルの制約のため動ける範囲に制限があったり、
+机の上の障害物のために移動が制限されたりカメラからの映像が見られなかったりすることが多かった(図\ref{guntank})．
+
+\begin{figure}[H]
+\centerline{\includegraphics[width=50mm]{figures/1e8781bb2a5b28c8e06906d226c7505a.png}}
+\caption{動きがとれなくなっているガンタンク.}
+\label{guntank}
+\end{figure}
+
+
 
 何にも邪魔をされることのない部屋の天井を移動する遠隔情報共有システム
 降臨鉄道を提案する．
 
-\section{関連研究}
 
-Double RoboticsのDouble\footnote{
-  \textsf{http://www.doublerobotics.com}
-}
-は遠隔地から操作可能な高さ約1.2mのテレプレゼンス
-ロボットである．Doubleのような人間の分身を模したロボットは，卓上に置かれた
-小型のロボットに比べて移動できる範囲は大きいが，他の人の邪魔になったりする
-ことがある．
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=50mm]{figures/1e8781bb2a5b28c8e06906d226c7505a.png}}
-\caption{ガンタンク.}
-\label{Guntank}
-\end{figure}
-
-
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=50mm]{figures/b74f4564d4b38d12e48fcf80fef96def.png}}
-\caption{WISS2014で質疑応答に利用されたDouble.}
-\label{double}
-\end{figure}
-% http://engineer.typemag.jp/article/yuki-igarashi41
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=60mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
-\caption{BeamPro.}
-\label{beampro}
-\end{figure}
-
-\footnote{
-  \textsf{https://www.suitabletech.com/beam/}
-}
-
-Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れるロボットで遠隔地を訪れられる．大掛かりな
-操作室が必要だが，現地での活動能力は高い．
+% \section{関連研究}
+% 
+% \begin{figure}[H]
+% \centerline{\includegraphics[width=60mm]{figures/2c092d5d4467d5b2572acef0c95b22ff.png}}
+% \caption{BeamPro.}
+% \label{beampro}
+% \end{figure}
+% 
+% \footnote{
+%   \textsf{https://www.suitabletech.com/beam/}
+% }
+% 
+% Jouppiのシステム\cite{Jouppi:2002:FST:587078.587128}では自由に動き回れるロボットで遠隔地を訪れられる．大掛かりな
+% 操作室が必要だが，現地での活動能力は高い．
 
 \section{降臨鉄道}
 
